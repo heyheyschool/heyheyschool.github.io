@@ -8,7 +8,7 @@ todoApp.config(function($locationProvider, $routeProvider) {
         templateUrl : "views/home.html"
     })
     .when("/addlist", {
-        templateUrl : "views/AddList.html",
+        templateUrl : "views/Addlist.html",
         controller: "addlistController"
     })
     .when("/info", {

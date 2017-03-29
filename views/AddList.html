@@ -7,8 +7,6 @@
     <title>Should do List</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script> -->
     
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
@@ -19,7 +17,6 @@
  <table>
       <form name="addListForm">
       <div class="form-group">
-        //met name anders werkt het niet. form.veldnaam.valid 
         <tr><input type="text" class="form-control" id="nameInput" placeholder="name ..." ng-model="newItem.name"></tr>
       </div>
        <tr><input type="text" class="form-control" id="categoryInput" placeholder="category name ..." ng-model="newItem.name2"></tr>
@@ -27,18 +24,14 @@
       <tr><input type="text" class="form-control" id="commentInput" placeholder="comment ..." ng-model="newItem.comment"></tr>
       </div>
         <tr>
-        <!--<select id="colorInput" ng-model="newItem.color">
-            <option value="Red">Red</option>
-            <option value="Blue">Blue</option>
-            <option value="Green">Green</option>
-        </select></tr> -->
         <br>
         <tr>
         <select id="priorityInput" ng-model="newItem.priority">
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
-        </select> <!--<input type="text" class="form-control" id="categoryInput" placeholder="priority ..." ng-model="newItem.priority">--></tr>
+        </select>
+        </tr>
         <br>
       </div> 
       <button type="submit" id ="submitButton" class="btn btn-primary" ng-click="saveNewItem()" ng-model="newItem">Save</button>
@@ -51,11 +44,8 @@
     <td id="category">{{getCategoryByNote(note)}}</td>
     <td id="comment">{{getCommentByNote(note)}}</td>
     <td id="priority">{{getPriorityByNote(note)}}</td>
-    <!-- Currency name here -->
   </tr>
   </table>
-
-  TEST
 
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="filters.js"></script>

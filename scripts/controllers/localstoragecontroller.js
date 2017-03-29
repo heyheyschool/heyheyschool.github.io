@@ -5,32 +5,20 @@ todoApp.controller('localStorageController', function($scope, DataFactory) {
     var localNotes = JSON.parse(localStorage.getItem("notes"));
     var localPriorities = JSON.parse(localStorage.getItem("priorities"));
 
-    console.log("before"+localCategories);
-    console.log("before"+localComments);
-    console.log("before"+localNotes);
-    console.log("before prio"+localPriorities);
-
-    //Ik overschrijf de array en moet hem toevoegen.
-
     if(localCategories != undefined && localCategories.length>0) {
-
-      //$scope.categories = $scope.categories.concat(localCategories);
       $scope.categories = localCategories;
-      console.log($scope.categories);
     }else{
       $scope.categories = DataFactory.getAllCategories();
     }
 
     if(localComments != undefined && localComments.length>0) {
       $scope.comment = localComments;
-      console.log($scope.comment);
     }else{
       $scope.comment = DataFactory.getAllComments();
     }
 
     if(localNotes != undefined && localNotes.length>0) {
       $scope.notes = localNotes;
-      console.log($scope.notes);
     }else{
         $scope.notes = DataFactory.getAllNotes();
   }
@@ -38,7 +26,6 @@ todoApp.controller('localStorageController', function($scope, DataFactory) {
     if(localPriorities != undefined && localPriorities.length>0) {
 
       $scope.priorities = localPriorities;
-      console.log($scope.priorities);
     }else{
       $scope.priorities = DataFactory.getAllPriorities();
 }

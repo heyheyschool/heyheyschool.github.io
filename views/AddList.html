@@ -38,15 +38,6 @@
     </form>
     </table>
 
-    <table>
-      <tr ng-repeat="note in notes |orderBy : 'name' track by $index">
-    <td id="name">{{note.name}}</td>
-    <td id="category">{{getCategoryByNote(note)}}</td>
-    <td id="comment">{{getCommentByNote(note)}}</td>
-    <td id="priority">{{getPriorityByNote(note)}}</td>
-  </tr>
-  </table>
-
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="filters.js"></script>
   </body>

@@ -41,17 +41,6 @@ todoApp.controller('localStorageController', function($scope, DataFactory) {
         return categories;
     }
 
-    $scope.getColorByNote = function(note){
-        var colors = "";
-        angular.forEach($scope.prorities, function(value, key) {
-            if(note.pid == value.id){
-                colors = value.color;
-                return false;
-            }
-        });
-        return colors;
-    }
-
     $scope.getPriorityByNote = function(note){
         var priorities = "";
         angular.forEach($scope.priorities, function(value, key) {
@@ -73,23 +62,6 @@ todoApp.controller('localStorageController', function($scope, DataFactory) {
         });
         return comment;
     }
-
-    $scope.checkPriorityId = function (caseStr) {
-        switch (caseStr) {
-            case 'High':
-                return 1;
-                console.log(1);
-                break;
-            case 'Medium':
-                return 2;
-                console.log(2);
-                break;
-            case 'Low':
-                return 3;
-                console.log(3);
-                break;
-        }
-    };
 
     $scope.checkPriorityColor = function (caseStr) {
         switch (caseStr) {

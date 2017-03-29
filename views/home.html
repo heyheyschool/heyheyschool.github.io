@@ -14,7 +14,7 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script> 
           
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
   </head>
 
   <body ng-app="todoApp" ng-controller="todoController">
@@ -50,7 +50,7 @@
                     <span ng-hide="note.updating">{{getCategoryByNote(note)}}</span>
                     <input type="text" ng-value="getCategoryByNote(note)" ng-model="categoryValue" ng-show="note.updating"> 
                 </td>
-                <td ng-class="{Red: getColorByNote(note)==='red', Blue: getColorByNote(note)==='blue', Green: getColorByNote(note)==='green'}"> 
+                <td>
                     {{getPriorityByNote(note)}}
                 </td>
                 <td>

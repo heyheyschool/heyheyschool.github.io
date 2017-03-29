@@ -28,4 +28,21 @@ todoApp.controller("addlistController", function ($scope) {
     localStorage.setItem("comment", JSON.stringify($scope.comment));
   };
 
+  $scope.checkPriorityId = function (caseStr) {
+      switch (caseStr) {
+          case 'High':
+              return 1;
+              console.log(1);
+              break;
+          case 'Medium':
+              return 2;
+              console.log(2);
+              break;
+          case 'Low':
+              return 3;
+              console.log(3);
+              break;
+        }
+    };
+
 });

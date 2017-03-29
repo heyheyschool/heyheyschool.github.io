@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Should do List</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>  
+    
+    <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script> 
+    <!--
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.4.0/angular-ui.min.js"></script>
+
+  <script src="node_modules/angular-filter/dist/angular-filter.min.js"></script>-->
+   <!-- 1.2.7 
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script> -->
+
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>-->
+          
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+  </head>
+
+  <body ng-app="todoApp" ng-controller="todoController">
+    <!--    <nav>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="material-icons">close</i></a>
+            <ul>
+                <li class="selected first"><a href="#/home">Home</a></li>
+
+                <li class="second"><a href="#/addlist">Voeg note toe</a></li>
+                
+                <li class="third"><a href="#/contact">Third</a></li>
+            </ul>
+            Voeg toe
+            <a href="#" ng-repeat="item in items |unique:'category' | filter: filters track by $index  " ng-click="filters.category = item.category">{{item.category}}</a>
+        </div>
+        </nav> -->
+        <!-- Use any element to open the sidenav -->
+
+   <!--   <span onclick="openNav()" ng-click="uniqueItems()"><i class="material-icons">menu</i></span>
+    <div class="listDiv">
+    <button ng-click="test()">HALLO</button> -->
+
+<!-- test 
+        <ul>
+    <li ng-repeat="attr in data">
+      <input type="radio" name='data-attr' value='{{attr.id}}' ng-model="selected.id" />{{attr.id}}
+    </li>
+  </ul>
+  
+  <select ng-model="selected.value" ng-options="item.id for item in selectedAttr.values ">
+  </select>
+  
+  <hr>
+  selectedAttr: {{selectedAttr | json}}
+  <hr>
+  Selected: {{selected | json}}
+
+  </div>
+
+  --> 
+
+  <!--  <form>
+      <div class="form-group">
+        <label for="itemInput">Should do item</label>
+        <input type="text" class="form-control" id="itemInput" placeholder="item ..." ng-model="newItem.name">
+      </div>
+        <input type="text" class="form-control" id="categoryInput" placeholder="category ..." ng-model="newItem.category">
+      </div>
+
+      <button type="button" class="btn btn-danger">Reset</button>
+      <button type="submit" class="btn btn-primary" ng-click="saveNewItem()" ng-model="newItem">Save</button>
+    </form>-->
+
+   <!-- <a href="" ng-repeat="note in notes | filter: filters track by $index" ng-click="filters.category = getCategoryByNote(note)">{{getCategoryByNote(note)}}</a>
+    test
+       <br>-->
+    <h1>home page</h1>
+
+    <div class="search"><div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." ng-model="searchTerm">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div> 
+      </div>
+
+    <br><br/>
+
+    <!--<select ng-model="orderProp" ng-click="filters.category = getCategoryByNote(note)" ng-options="note in notes | getCategoryByNote(note) | filter: filters track by $index">
+    <option value="0">Default</option>
+    // unique options from the categories
+    </select> -->
+
+    <table class="table" ng-controller="localStorageController">
+        <thead>
+            <tr>
+                <th>Item</th><th>Category</th><th>Status</th><th>Priority</th><th>Comment</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- <a ng-click="filters.category = ''"'>clear filters</a> -->
+            <!-- FOREACH item IN items -->
+            <tr ng-repeat="note in notes | filter: checked=false | filter: searchTerm track by $index">
+            <!-- | unique: 'category'-->
+               <td>{{note.id}}</td>
+                <td>
+                    <span ng-hide="note.updating">{{note.name | hoofdletterFilter}}</span>
+                    <input type="text" ng-model="note.name" ng-show="note.updating">
+                </td>
+                <td>
+                    <span ng-hide="note.updating">{{getCategoryByNote(note)}}</span>
+                    <input type="text" ng-value="getCategoryByNote(note)" ng-model="categoryValue" ng-show="note.updating"> 
+                </td>
+                <td ng-class="{Red: getColorByNote(note)==='red', Blue: getColorByNote(note)==='blue', Green: getColorByNote(note)==='green'}"> 
+                    {{getPriorityByNote(note)}}
+                </td>
+                <td>
+                <span ng-hide="note.updating">{{getCommentByNote(note)}}</span>
+                <input type="text" placeholder="{{getCommentByNote(note)}}" ng-value="getCommentByNote(note)" ng-model="commentValue" ng-show="note.updating">
+                <!--  ng-init="rootFolders='hoi'" -->
+                <!-- <input type="text" ng-model="commentValue" name="Comment" value="{{getCommentByNote(note)}}">-->
+                </td>
+                <td>
+                    <input type="checkbox" ng-model="note.checked">
+                </td>
+                <td>
+                    <button ng-click="showMe = !showMe"><i class="material-icons">create</i></button>
+                </td>
+                <td>
+                <div ng-show="showMe">
+                    <button type="button" class="btn btn-success" ng-click="updateItem(note, commentValue, categoryValue)" ng-show="note.updating">Save</button>
+
+                    <button type="button" class="btn btn-warning" ng-click="note.updating=true;" ng-hide="note.updating">Update</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteItem(note)">Delete</button>
+                </td>
+                </div>
+            </tr>
+
+        </tbody>
+    </table> 
+
+    <table>
+      <tr ng-repeat="note in notes |orderBy : 'name'">
+    <td>{{note.name}}</td>
+    <td>{{note.id}}</td>
+    <td>{{getCategoryByNote(note)}}</td>
+    <!-- Currency name here -->
+  </tr>
+  </table>
+    <script type="text/javascript" src="app.js"></script>
+     <script type="text/javascript" src="scripts/filters/filters.js"></script>
+    <!--<script type="text/javascript" src="unique.js"></script> -->
+    
+  </body>

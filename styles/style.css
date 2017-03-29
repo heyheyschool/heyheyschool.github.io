@@ -1,0 +1,157 @@
+body{
+    font-family: 'Hind', sans-serif;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/*li{
+    list-style-type: none;
+}
+
+ul{
+    -webkit-padding-start: 0;
+    list-style-type: none;
+}*/
+
+.listDiv{
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.table.active {
+    background-color: red;
+}
+
+button{
+    border: none;
+    background-color: transparent ;
+}
+
+.Red {
+    color: #ff0000;
+}
+
+.Blue {
+    color: #6600ff;
+}
+
+.Green {
+    color: #00ff00;
+}
+
+/*.first-letter {
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+}*/
+
+/*input.ng-invalid {
+    background-color:pink;
+}
+    
+input.ng-valid {
+    background-color:lightgreen;
+}*/
+
+.menu-bar{
+    width: 100%;
+    background-color: red;
+    padding: 20px;
+}
+
+.search{
+    width: 200px;
+    position: absolute;
+    top: 7px;
+    right: 30%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
